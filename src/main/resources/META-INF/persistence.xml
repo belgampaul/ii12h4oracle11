@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="examplePU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+        <class>be.belgampaul.entities.User</class>
+        <!--<class>be.belgampaul.model.DocumentStatus</class>-->
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:Oracle:thin:@127.0.0.1:1521/ikka" />
+            <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver" />
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="toor" />
+            <property name="hibernate.archive.autodetection" value="class" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hbm2ddl.auto" value="update" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+        </properties>
+    </persistence-unit>
+</persistence>
