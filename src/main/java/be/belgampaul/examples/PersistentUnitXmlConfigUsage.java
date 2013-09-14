@@ -1,4 +1,7 @@
+package be.belgampaul.examples;
+
 import be.belgampaul.entities.User;
+import org.apache.log4j.Logger;
 
 import javax.persistence.*;
 import java.util.List;
@@ -8,7 +11,9 @@ import java.util.List;
  * Date: 14.09.13
  * Time: 2:12
  */
-public class Main {
+public class PersistentUnitXmlConfigUsage {
+  private static Logger logger = Logger.getLogger(PersistentUnitXmlConfigUsage.class);
+
   private static final String PERSISTENCE_UNIT_NAME = "examplePU";
   private static EntityManagerFactory factory;
   public static void main(String[] args) {
@@ -17,12 +22,11 @@ public class Main {
     //insertDefaultUser(entityManager);
     showUsers(entityManager);
     User user = new User();
-    user.setId(-2L);
-    user.setLogin("test");
+    user.setLogin("admin");
     entityManager.getTransaction().begin();
     entityManager.persist(user);
     entityManager.getTransaction().commit();
-
+    logger.info("Program finished execution");
     //createUsersTable(entityManager);
   }
 
